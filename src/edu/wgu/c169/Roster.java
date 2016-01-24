@@ -20,7 +20,7 @@ public class Roster {
         myStudents.add(new Student(2, "Suzan", "Erickson", "Erickson_1990@gmailcom", 19, new int[]{91, 72, 85}));
         myStudents.add(new Student(3, "Jack", "Napoli", "the_lawyer99@yahoo.com", 19, new int[]{85, 84, 87}));
         myStudents.add(new Student(4, "Erin", "Black", "Erin.black@comast.net", 19, new int[]{91, 98, 82}));
-        myStudents.add(new Student(5, "Patrick", "Thach", "c169@wgu.edu", 30, new int[]{56, 72, 95}));
+        myStudents.add(new Student(5, "Patrick", "Thach", "pthach2@wgu.edu", 30, new int[]{56, 72, 95}));
     }
 
     /**
