@@ -2,7 +2,7 @@ package edu.wgu.c169;
 
 /**
  * Program Driver for Roster and Student class
- * Created by c169 on 1/23/16.
+ * Created by pthach2 on 1/23/16.
  */
 
 public class Main {
