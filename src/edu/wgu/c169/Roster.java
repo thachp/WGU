@@ -106,14 +106,13 @@ public class Roster {
     }
 
     /**
-     * verifies student e-mail addresses and displays all invalid e-mail addresses to the user
-     *
-     * @credit http://stackoverflow.com/questions/8204680/java-regex-email
+     * Verifies student e-mail addresses and displays all invalid e-mail addresses to the user
      */
 
     public static void print_invalid_emails() {
 
-        // regex exprssion for email
+        // FailedDev. (2011, November 20). Java regex email [Msg 8204703].
+        // Message posted to http://stackoverflow.com/questions/8204680/java-regex-email
         Pattern pattern = Pattern.compile("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b");
 
         // loop through each email if bad add to add email arraylist
