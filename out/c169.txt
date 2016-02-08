@@ -1,15 +1,15 @@
 1	 First Name: John	 Last Name:  Smith	 Age: 20	 Grade: [88, 79, 59]
 2	 First Name: Suzan	 Last Name:  Erickson	 Age: 19	 Grade: [91, 72, 85]
 3	 First Name: Jack	 Last Name:  Napoli	 Age: 19	 Grade: [85, 84, 87]
-4	 First Name: Erin	 Last Name:  Black	 Age: 19	 Grade: [91, 98, 82]
+4	 First Name: Erin	 Last Name:  Black	 Age: 22	 Grade: [91, 98, 82]
 5	 First Name: Patrick	 Last Name:  Thach	 Age: 30	 Grade: [56, 72, 95]
 -----
-Bad emails: Erickson_1990@gmailcom
+Bad emails: Erickson_1990@gmailcom,The_lawyer99yahoo.com
 -----
-Average: 75
-Average: 82
-Average: 85
-Average: 90
-Average: 74
+Student Id: 1 	 Average: 75
+Student Id: 2 	 Average: 82
+Student Id: 3 	 Average: 85
+Student Id: 4 	 Average: 90
+Student Id: 5 	 Average: 74
 -----
 Student ID 3 not found.
