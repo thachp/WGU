@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by pt133e on 1/23/16.
+ * Created by pthach2 on 1/23/16.
  */
 
 public class Roster {
@@ -15,12 +15,48 @@ public class Roster {
     static ArrayList<Student> myStudents = new ArrayList<>();
     static ArrayList<String> myBadEmails = new ArrayList<>();
 
-    public static void setStudents() {
-        myStudents.add(new Student(1, "John", "Smith", "John1989@gmail.com", 20, new int[]{88, 79, 59}));
-        myStudents.add(new Student(2, "Suzan", "Erickson", "Erickson_1990@gmailcom", 19, new int[]{91, 72, 85}));
-        myStudents.add(new Student(3, "Jack", "Napoli", "the_lawyer99@yahoo.com", 19, new int[]{85, 84, 87}));
-        myStudents.add(new Student(4, "Erin", "Black", "Erin.black@comast.net", 19, new int[]{91, 98, 82}));
-        myStudents.add(new Student(5, "Patrick", "Thach", "pthach2@wgu.edu", 30, new int[]{56, 72, 95}));
+    /**
+     * Set students
+     * @param students
+     */
+    public static void setStudents(String[] students) {
+
+        for (String student : students) {
+            String[] profile = student.split(",");
+            add(profile[0], profile[1], profile[2], profile[3],
+                    Integer.parseInt(profile[4]),
+                    Integer.parseInt(profile[5]),
+                    Integer.parseInt(profile[6]),
+                    Integer.parseInt(profile[7])
+            );
+        }
+    }
+
+    /**
+     * Add student to my students roster.
+     * @param studentID
+     * @param firstname
+     * @param lastname
+     * @param emailaddress
+     * @param age
+     * @param grade1
+     * @param grade2
+     * @param grade3
+     */
+    public static void add(String studentID, String firstname, String lastname, String emailaddress,
+                           int age, int grade1, int grade2, int grade3) {
+
+
+        Student stud = new Student();
+        stud.setStudentId(Integer.parseInt(studentID));
+        stud.setFirstName(firstname);
+        stud.setLastName(lastname);
+        stud.setEmail(emailaddress);
+        stud.setAge(age);
+        stud.setGrades(new int[]{grade1, grade2, grade3});
+
+        Roster.myStudents.add(stud);
+
     }
 
     /**
@@ -66,11 +102,12 @@ public class Roster {
         }
 
         // print average grade
-        System.out.println("Average: " + (theTotal / theStudent.getGrades().length));
+        System.out.println("Student Id: " + studentID + " \t Average: " + (theTotal / theStudent.getGrades().length));
     }
 
     /**
      * verifies student e-mail addresses and displays all invalid e-mail addresses to the user
+     *
      * @credit http://stackoverflow.com/questions/8204680/java-regex-email
      */
 

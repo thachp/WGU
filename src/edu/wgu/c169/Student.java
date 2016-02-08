@@ -14,17 +14,6 @@ public class Student {
     private int age;
     private int[] grades;
 
-    public Student(int studentId, String firstName, String lastName,
-                   String email, int age, int[] grades) {
-
-        this.studentId = studentId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.age = age;
-        this.grades = grades;
-    }
-
     /**
      * Accessor (i.e., getter) for each instance variable from part B1
      */
