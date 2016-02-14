@@ -1,0 +1,165 @@
+html {
+    background-color: lightgray;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+body {
+    margin: 0px;
+    color: #333333;
+    padding-bottom: 15px;
+}
+
+#header {
+    clear: both;
+    background-color: white;
+    border-bottom: 1px solid gray;
+}
+
+
+#container {
+    margin-top: 30px;
+    position: relative;
+    max-width: 750px;
+    padding: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+
+    border-radius: 10px;
+}
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.flex-item-col1 {
+    width: 66%;
+    margin: 10px;
+}
+
+.flex-item-col2 {
+    width: 33%;
+    margin: 10px;
+}
+
+.thumbnail {
+    max-width:100%;
+}
+
+#footer {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    clear: both;
+}
+
+ul {
+    margin: 0px;
+    margin-left: 0px;
+    padding: 0px;
+    padding-left: 20px;
+}
+
+/**
+* Logo and Header
+*/
+
+.logo {
+    margin: 0px; padding: 0px; margin-bottom: -5px;
+}
+
+.logo > a {
+    text-decoration:  none;
+    color: white;
+    background-color: navy;
+    padding: 5px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    box-shadow: 3px 3px 1px #ddd;
+}
+
+
+.logo > a:hover {
+    background-color: lightblue;
+    box-shadow: 3px 3px 1px #eee;
+}
+
+/*
+* Button groups
+*/
+
+.btn-group {
+    position: absolute;
+    padding-left: 0;
+    right: 25px;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.btn-group > li {
+    float: right;
+    margin-left: 5px;
+}
+
+.btn-group > li > a {
+    display: inline-block;
+    background: white;
+    color: navy;
+    font-size: 16px;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+.btn-group > li > a.active {
+    display: inline-block;
+    background: navy;
+    color: white;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+.btn-group > li > a:active {
+    color: white;
+    background: navy;
+}
+
+.btn-group > li > a:hover {
+    color: white;
+    text-decoration: none;
+    border-bottom: none;
+    background: navy;
+}
+
+/**
+* Width Title
+*/
+
+.widget {
+    border: 1px solid #333333;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.widget .w-title {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.widget .w-body {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.widget .w-footer {
+    border-top: 1px solid #CCCCCC;
+    padding-top: 5px;
+}
+
