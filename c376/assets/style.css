@@ -1,20 +1,42 @@
 html {
-    background-color: lightgray;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
 }
+
 body {
     margin: 0px;
+    background: lightgray;
     color: #333333;
     padding-bottom: 15px;
+}
+
+table {
+    text-align: left;
+    margin: 0px;
+    width: 100%;
+    padding: 0px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+cite {
+    font-size: 9px;
+}
+
+th {
+    background-color: lightblue;
+}
+
+tr {
+    border: 1px solid black;
 }
 
 #header {
     clear: both;
     background-color: white;
-    border-bottom: 1px solid gray;
+    margin-top: 5px;
+    border-bottom: 1px solid lightgray;
 }
-
 
 #container {
     margin-top: 30px;
@@ -24,7 +46,6 @@ body {
     margin-left: auto;
     margin-right: auto;
     background-color: #ffffff;
-
     border-radius: 10px;
 }
 
@@ -36,20 +57,24 @@ body {
 .flex-item-col1 {
     width: 66%;
     margin: 10px;
+    margin-left: 0px;
+
 }
 
 .flex-item-col2 {
     width: 33%;
     margin: 10px;
+    margin-right: 0px;
 }
 
 .thumbnail {
-    max-width:100%;
+    max-width: 100%;
 }
 
 #footer {
     font-size: 14px;
     margin-top: 10px;
+    color: white;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -68,22 +93,27 @@ ul {
 */
 
 .logo {
-    margin: 0px; padding: 0px; margin-bottom: -5px;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: -5px;
+}
+
+.logo span {
+    font-size: 12px;
 }
 
 .logo > a {
-    text-decoration:  none;
+    text-decoration: none;
     color: white;
-    background-color: navy;
+    background-color: #008CBA;
     padding: 5px;
     border-bottom-right-radius: 10px;
     border-top-left-radius: 10px;
     box-shadow: 3px 3px 1px #ddd;
 }
 
-
 .logo > a:hover {
-    background-color: lightblue;
+    background-color: #002F51;
     box-shadow: 3px 3px 1px #eee;
 }
 
@@ -107,34 +137,34 @@ ul {
 .btn-group > li > a {
     display: inline-block;
     background: white;
-    color: navy;
+    color: #002F51;
     font-size: 16px;
     text-decoration: none;
-    border: 1px solid black;
+    border: 1px solid lightgray;
     padding: 5px;
     border-radius: 5px 5px 0 0;
 }
 
 .btn-group > li > a.active {
     display: inline-block;
-    background: navy;
+    background: #002F51;
     color: white;
     text-decoration: none;
-    border: 1px solid black;
+    border: 1px solid lightgray;
     padding: 5px;
     border-radius: 5px 5px 0 0;
 }
 
 .btn-group > li > a:active {
     color: white;
-    background: navy;
+    background: #002F51;
 }
 
 .btn-group > li > a:hover {
     color: white;
     text-decoration: none;
     border-bottom: none;
-    background: navy;
+    background: #002F51;
 }
 
 /**
@@ -142,7 +172,7 @@ ul {
 */
 
 .widget {
-    border: 1px solid #333333;
+    border: 1px solid #CCCCCC;
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 10px;
