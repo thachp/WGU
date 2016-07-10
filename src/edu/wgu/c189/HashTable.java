@@ -130,7 +130,7 @@ public class HashTable {
      * @param lastName
      * @return
      */
-    public void lookup(String firstName, String lastName) {
+    public HashNode lookup(String firstName, String lastName) {
         int theKey = getHashIndex(firstName, lastName);
 
         if (myNodes[theKey] == null) {
@@ -139,6 +139,8 @@ public class HashTable {
             Person person = myNodes[theKey].person;
             System.out.println("Lookup: Bucket " +  theKey +" : "+ person.toString());
         }
+
+        return myNodes[theKey];
     }
 
 

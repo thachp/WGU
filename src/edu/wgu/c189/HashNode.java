@@ -12,7 +12,6 @@ public class HashNode {
     // linked-list
     HashNode next = null;
 
-
     /**
      *
      * @param theHash

@@ -1,7 +1,7 @@
 package edu.wgu.c189;
 
 /**
- * This class generate person entry tobe used in Hashtable and Tree data structure.
+ * This class generate person entry tobe used in Hashtable and BinaryTree data structure.
  * Created by thachp on 7/10/16.
  */
 public class Person {
