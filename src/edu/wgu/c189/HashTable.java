@@ -1,7 +1,5 @@
 package edu.wgu.c189;
 
-import java.util.Objects;
-
 /**
  * A Hashtable is a data strucuture that is similar to associate array in PHP, it maps
  * key to value.
