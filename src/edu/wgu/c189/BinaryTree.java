@@ -36,61 +36,34 @@ public class BinaryTree {
         Person thePerson = new Person(firstName, lastName, emailAddress, phoneNumber);
         int key = getIndex(firstName, lastName);
 
-
         // recursive
         if (this.isEmpty()) {
             this.root = new TreeNode(key, thePerson);
-            System.out.println("Insert: " + key + " : " + this.root.person.toString());
-            mySize++;
+            System.out.println("Insert Root: " + key + " : " + this.root.person.toString());
         } else {
-            insertNode(key, thePerson, this.root);
+            this.root.insert(key, thePerson, this.root);
         }
 
+        mySize++;
     }
-
 
     /**
-     * Insert node into the tree.
+     * Delete
      *
-     * @param person
-     * @param subTree
+     * @param firstName
+     * @param lastName
      */
-
-    public void insertNode(int key, Person person, TreeNode subTree) {
-
-        if (subTree == null) {
-            subTree.hash = key;
-            subTree.person = person;
-            mySize++;
-
-
-        } else {
-
-            if (key < subTree.hash) {
-                if (subTree.left == null) {
-                    subTree.left = new TreeNode(key, person);
-                    mySize++;
-                    System.out.println("Insert: " + key + " : " + person.toString());
-                } else {
-                    insertNode(key, person, subTree.left);
-                }
-
-            } else if (key > subTree.hash) {
-                if (subTree.right == null) {
-                    subTree.right = new TreeNode(key, person);
-                    mySize++;
-                    System.out.println("Insert: " + key + " : " + person.toString());
-                } else {
-                    insertNode(key, person, subTree.right);
-                }
-            }
-        }
-    }
-
     public void delete(String firstName, String lastName) {
-        //
-    }
+        int key = getIndex(firstName, lastName);
+        // delete key, traverse from root
+        boolean isDeleted = this.root.delete(key, null);
 
+        if (isDeleted == true) {
+            mySize--;
+            System.out.println("Delete: " + firstName.toUpperCase() + " " + lastName.toUpperCase() + " deleted.");
+        }
+
+    }
 
     /**
      * pre-order – process the current node and then traverse the left and right sub-trees.
@@ -100,14 +73,33 @@ public class BinaryTree {
      */
 
     public void lookup(String firstName, String lastName) {
-        //
+
+        int key = getIndex(firstName, lastName);
+
+        TreeNode node =  this.root.find(key);
+
+        if(node != null) {
+            System.out.println("Lookup: " + node.person.toString());
+        } else {
+            System.out.println("Lookup: " + firstName.toUpperCase() + " " + lastName.toUpperCase() + " not found.");
+        }
 
     }
 
+    /**
+     * Generate positve key hash
+     *
+     * @param firstName
+     * @param lastName
+     * @return
+     */
     public int getIndex(String firstName, String lastName) {
         return firstName.concat(lastName).hashCode() & 0x7fffffff;
     }
 
+    /**
+     * Output stack
+     */
     public void outputStack() {
 
         System.out.println("\n --- Debug Tree Information --- \n");

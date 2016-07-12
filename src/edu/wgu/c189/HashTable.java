@@ -70,10 +70,9 @@ public class HashTable {
         } else {
 
             // has already exist, so we chain it.
-            HashNode previousNode = myNodes[theKey];
-
-            myNodes[theKey] = new HashNode(theKey, thePerson);
-            myNodes[theKey].next = previousNode;
+            HashNode headNode =  new HashNode(theKey, thePerson);
+            headNode.next = myNodes[theKey];
+            myNodes[theKey]  = headNode;
 
             System.out.println("Insert Chain: Bucket " +theKey + " : " + myNodes[theKey].person.toString());
 
@@ -96,28 +95,17 @@ public class HashTable {
         int theKey = getHashIndex(firstName, lastName);
 
         if (myNodes[theKey] == null) {
-            System.out.println("Delete: " + firstName.toUpperCase() + " " + lastName.toUpperCase() + " not found.");
+            System.out.println("Delete: Bucket : " + theKey + " : " + firstName.toUpperCase() + " " + lastName.toUpperCase() + " not found.");
         }
 
         if (myNodes[theKey] != null) {
 
             // loop through everyone in hash chain, reduce count by 1
-            HashNode currentNode = myNodes[theKey];
+            String fullName = firstName.toUpperCase() + " " + lastName.toUpperCase();
+            myNodes[theKey] = myNodes[theKey].removeAt(fullName);
 
-            if (currentNode.next != null) {
-                while (currentNode.next != null) {
-                    currentNode = currentNode.next;
-                    mySize--;
-                }
-            }
-
-            System.out.println("Delete: " + currentNode.person.toString());
+            System.out.println("Delete: Bucket : " + theKey + " : " + firstName.toUpperCase() + " " + lastName.toUpperCase() + ".");
             mySize--;
-
-
-            // set hashKey to null, therefore removing the element from the array
-            myNodes[theKey] = null;
-
         }
 
     }
@@ -137,7 +125,7 @@ public class HashTable {
             System.out.println("Lookup: " + firstName.toUpperCase() + " " + lastName.toUpperCase() + " not found.");
         } else {
             Person person = myNodes[theKey].person;
-            System.out.println("Lookup: Bucket " +  theKey +" : "+ person.toString());
+             System.out.println("Lookup: Bucket " +  theKey +" : "+ person.toString());
         }
 
         return myNodes[theKey];
@@ -179,7 +167,7 @@ public class HashTable {
 
         for(HashNode node: myNodes) {
             if(node != null) {
-                System.out.print("Bucket Index: " + node.myHash + " : ");
+                System.out.print("Bucket Index: " + node.hash + " : ");
                 HashNode current = node;
 
                 while(current != null) {

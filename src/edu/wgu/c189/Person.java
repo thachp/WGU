@@ -8,6 +8,8 @@ public class Person {
 
     // Person attributes
     String myFullName;
+    String myFirstName;
+    String myLastName;
     String myEmailAddress;
     String myPhoneNUmber;
 
@@ -20,8 +22,12 @@ public class Person {
      * @param emailAddress
      * @param phoneNumber
      */
+
     public Person(String firstName, String lastName, String phoneNumber, String emailAddress) {
+
         this.myFullName = firstName.toUpperCase() + " " + lastName.toUpperCase();
+        this.myFirstName = firstName;
+        this.myLastName = lastName;
         this.myEmailAddress = emailAddress;
         this.myPhoneNUmber = phoneNumber;
     }
