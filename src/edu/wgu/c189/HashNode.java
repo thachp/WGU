@@ -1,7 +1,11 @@
 package edu.wgu.c189;
 
 /**
- * Created by thachp on 7/10/16.
+ * This clas will build HashNode object.
+ * It is hold reference to Person object.
+ * PT
+ *
+ * @author pthach2@wgu.edu
  */
 public class HashNode {
 
@@ -13,6 +17,8 @@ public class HashNode {
     HashNode next;
 
     /**
+     * Constructor
+     *
      * @param hash
      * @param person
      */
@@ -21,15 +27,21 @@ public class HashNode {
         this.person = person;
     }
 
-
     /**
+     * Loop through all node in next matching fullname, rebuild the link-list
+     * then returh Head or head.next.
+     *
+     * Time Complexity: O(n)
+     * PT
      *
      * @return
      */
 
     public HashNode removeAt(String fullName) {
 
-        // if fullname exist in head node
+        // if fullname exist in head node and next is null
+        // then return next
+        // PT returna
         if (person.myFullName.equals(fullName)) {
             if (next == null) {
                 return null;
@@ -38,20 +50,21 @@ public class HashNode {
             return next;
         }
 
-        HashNode prev = this;
-        while (prev.next != null && !prev.next.person.myFullName.equals(fullName)) {
-            prev = prev.next;
+        // Continue looping till node containing the fullName exist.
+        // PT
+        HashNode current = this;
+        while (current.next != null && !current.next.person.myFullName.equals(fullName)) {
+            current = current.next;
         }
 
-        if (prev.next == null) {
+        if (current.next == null) {
             return null;
         }
 
-        prev.next = prev.next.next;
+        current.next = current.next.next;
 
         // return head
         return this;
-
     }
 
 }

@@ -2,11 +2,12 @@ package edu.wgu.c189;
 
 /**
  * This class generate person entry tobe used in Hashtable and BinaryTree data structure.
- * Created by thachp on 7/10/16.
+ * PT
+ *
+ * @author pthach2@wgu.edu
  */
 public class Person {
 
-    // Person attributes
     String myFullName;
     String myFirstName;
     String myLastName;
@@ -14,7 +15,9 @@ public class Person {
     String myPhoneNUmber;
 
     /**
+     * Constructor
      * Create new person entry
+     * PT
      *
      * @param
      * @param firstName
@@ -34,6 +37,7 @@ public class Person {
 
     /**
      * Override default toString()s
+     * PT
      * @return
      */
     public String toString() {

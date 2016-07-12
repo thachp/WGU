@@ -1,35 +1,31 @@
 package edu.wgu.c189;
 
 /**
- * A Hashtable is a data strucuture that is similar to associate array in PHP, it maps
- * key to value.
- * <p>
- * Created by thachp on 7/10/16.
+ * A Hashtable is a data strucuture that is similar to associate array, it maps key to value.
+ * @author pthach2@wgu.edu
  */
+
 public class HashTable {
 
-    // should be a prime number
     private int MY_MAX_SIZE;
     private int mySize;
     private HashNode[] myNodes;
 
     /**
      * Constructor
-     *
+     * PT: Not sure if Arraylist is allowed in this task, so will not use arraylist.
+     * Instead will use java array that will hold fix number of Hashnode type.
      * @param maxSize
      */
+
     public HashTable(int maxSize) {
 
-        // start with 0 size
         this.mySize = 0;
 
-        // throw error if maxSize is less or equal to 0
         if (maxSize <= 0) {
             throw new IllegalArgumentException("Illegal max size");
         }
 
-        // Not sure if Arraylist is allowed in this task, so will not use arraylist.
-        // Instead will use java array that will hold fix number of Person type.
         this.MY_MAX_SIZE = maxSize;
 
         // allocate memory to maxSize
@@ -37,10 +33,9 @@ public class HashTable {
 
     }
 
-
     /**
      * How items do I have in this table?
-     *
+     * PT
      * @return
      */
     public int getSize() {
@@ -48,6 +43,7 @@ public class HashTable {
     }
 
     /**
+     * PT
      * Insert person object to myPeople
      * Time Complexity: o(1), worst at o(n) -> because of chain to avoid hash collision.
      *
@@ -63,7 +59,7 @@ public class HashTable {
         int theKey = getHashIndex(firstName, lastName);
         Person thePerson = new Person(firstName, lastName, emailAddress, phoneNumber);
 
-        // if my person have not exist, add it to hash key
+        // PT if my person have not exist, add it to hash key
         if (myNodes[theKey] == null) {
             myNodes[theKey] = new HashNode(theKey, thePerson);
             System.out.println("Insert: Bucket " + theKey + " : " +  myNodes[theKey].person.toString());
@@ -78,7 +74,6 @@ public class HashTable {
 
         }
 
-        // increase size by one
         mySize++;
 
     }
@@ -86,7 +81,7 @@ public class HashTable {
     /**
      * Delete person from my people by first and last name.
      * Time Complexity: o(1), worst at o(n) -> because of chain to avoid hash collision.
-     *
+     * PT
      * @param firstName
      * @param lastName
      */
@@ -100,7 +95,8 @@ public class HashTable {
 
         if (myNodes[theKey] != null) {
 
-            // loop through everyone in hash chain, reduce count by 1
+            // PT Loop through everyone in hash chain, reduce count by 1
+            // O(n) time complexity occur in the removeAt() method of HashNode.
             String fullName = firstName.toUpperCase() + " " + lastName.toUpperCase();
             myNodes[theKey] = myNodes[theKey].removeAt(fullName);
 
@@ -113,7 +109,7 @@ public class HashTable {
     /**
      * Return person having first and last name
      * Time Complexity: o(1), worst at o(n) -> because of chain to avoid hash collision.
-     *
+     * PT
      * @param firstName
      * @param lastName
      * @return
@@ -136,7 +132,7 @@ public class HashTable {
      * Generate hashkey by combining first name and last name string.
      * This ensure that all hashcodes are between o and the max_size
      * To avoid collision, I will support chaining of Person object in the insert statement
-     *
+     * PT
      * @param firstName
      * @param lastName
      * @return
@@ -156,7 +152,9 @@ public class HashTable {
 
 
     /**
-     * Though, not in the requirement to print all node in the data structures.
+     * Though, not in the requirement, I use this could to print all node in the data structures.
+     * It helps visually see # of elements currently in the table. This should not be invoked if table get too big.
+     * PT
      * @return
      */
 
