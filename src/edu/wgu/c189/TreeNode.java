@@ -1,7 +1,11 @@
 package edu.wgu.c189;
 
 /**
- * Created by thachp on 7/10/16.
+ * This class will allow creation of TreeNode object.
+ * It is hold reference to Person object.
+ * PT
+ *
+ * @author pthach2@wgu.edu
  */
 public class TreeNode {
 
@@ -10,7 +14,14 @@ public class TreeNode {
     TreeNode left = null;
     TreeNode right = null;
 
-
+    /**
+     * Constructor
+     * Hold reference to Pereson object.
+     * Store hash to support BinaryTree.
+     * PT
+     * @param hash
+     * @param person
+     */
     public TreeNode(int hash, Person person) {
         this.hash = hash;
         this.person = person;
@@ -18,10 +29,14 @@ public class TreeNode {
 
 
     /**
+     *  Recursively find a children of this node by key.
+     *  Time Complexity: O(log(n)), worst: O(n)
      *
+     *  PT
      * @param key
      * @return
      */
+
     public TreeNode find(int key) {
         if (key == this.hash)
             return this;
@@ -40,8 +55,13 @@ public class TreeNode {
         return null;
     }
 
-
-
+    /**
+     * Find the minimum children of this node.
+     * Time complexity: O(log(n), worst: O(n)
+     *
+     * PT
+     * @return
+     */
     public Person findMin() {
         if (left == null)
             return person;
@@ -50,7 +70,12 @@ public class TreeNode {
     }
 
     /**
-     * Insert
+     * Insert node in its rightful place.
+     * Inside left if key is less than current node,
+     * Inside right if key greater than curret node.
+     *
+     * Time complexity: O(log(n), worst: O(n)
+     * PT
      *
      * @param key
      * @param person
@@ -88,10 +113,14 @@ public class TreeNode {
 
 
     /**
-     * Delete this node
+     * Similar to insert, this recursive method delete node from subtree by hash.
+     * It also rebuild subtree.
      *
+     * Time complexity: O(log(n), worst: O(n)
+     * PT
      * @param parent
      */
+
     public boolean delete(int key, TreeNode parent) {
         if (key < hash) {
             if (left != null)
@@ -117,8 +146,10 @@ public class TreeNode {
         return true;
     }
 
-
-    // perform an in-order traversal of the current node
+    /**
+     * Though not in requirement, this helped see number of nodes in the tree.
+     * PT
+     */
     public void dump() {
         if (this.left != null) {
             this.left.dump();

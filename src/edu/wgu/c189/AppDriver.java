@@ -3,15 +3,25 @@ package edu.wgu.c189;
 import java.util.*;
 
 /**
- * Created by thachp on 2/27/16.
+ *
+ *  An application that tests the insert, remove, and lookups functionalities BinaryTree and Hashtable.
+ *  Maybe use JUNIT instead?
+ *  PT
+ * @author pthach2@wgu.edu
  */
 
 public class AppDriver {
 
+    /**
+     * Not in requirement, but wrong input so I can just
+     * press 1, 2, 3 to run test in terminal.
+     * PT
+     */
+
     public static void main(String[] args)
     {
 
-        Scanner reader = new Scanner(System.in);  // Reading from System.in
+        Scanner reader = new Scanner(System.in);
         System.out.println("Enter your test scenario...");
         System.out.println("\t 1 to run Hashtable Test.");
         System.out.println("\t 2 to run BinaryTree Test.");
@@ -39,14 +49,19 @@ public class AppDriver {
     }
 
     /**
-     * Test Hash People
+     * Test Hash People as required by assignment.
+     * PT
      */
     public static void hashPeopleTest() {
 
-        System.out.println("\n >> Test HashTable People \n");
+        System.out.println("\n Test HashTable People \n");
 
-        // use max size of prime number 13, because assign require implementation of 13 buckets.
-        HashTable people = new HashTable(13);
+        // use max size of prime number 41, because it will generate nice sparse array
+        // and meet the requirement of 13 buckets.
+        //
+        // PT
+
+        HashTable people = new HashTable(41);
 
         people.insert("Bob", "Smith", "555-235-1111", "bsmith@somewhere.com");
         people.insert("Jane", "Smith", "555-235-1112", "jw@something.com");
@@ -85,19 +100,20 @@ public class AppDriver {
         System.out.println("\nSize: " + people.getSize());
 
         // should return  errors, because it does not exist
+        // PT
         people.lookup("Jill", "Jones");
         people.lookup("John", "Doe");
 
-        // print stack
         people.outputStack();
 
     }
 
     /**
      * Test BinaryTree People
+     * PT
      */
     public static void treePeopleTest() {
-        System.out.println("\n >> Test BinaryTree People \n");
+        System.out.println("\n Test BinaryTree People \n");
 
         BinaryTree people = new BinaryTree();
 
@@ -139,10 +155,10 @@ public class AppDriver {
         System.out.println("\nSize: " + people.getSize());
 
         // should return  errors, because it does not exist
+        // PT
         people.lookup("Jill", "Jones");
         people.lookup("John", "Doe");
 
-        // print stack
         people.outputStack();
 
     }

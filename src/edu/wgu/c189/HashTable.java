@@ -2,6 +2,7 @@ package edu.wgu.c189;
 
 /**
  * A Hashtable is a data strucuture that is similar to associate array, it maps key to value.
+ * PT
  * @author pthach2@wgu.edu
  */
 
@@ -13,8 +14,9 @@ public class HashTable {
 
     /**
      * Constructor
-     * PT: Not sure if Arraylist is allowed in this task, so will not use arraylist.
+     * Not sure if Arraylist is allowed in this task, so will not use arraylist.
      * Instead will use java array that will hold fix number of Hashnode type.
+     * PT
      * @param maxSize
      */
 
@@ -43,9 +45,9 @@ public class HashTable {
     }
 
     /**
-     * PT
      * Insert person object to myPeople
      * Time Complexity: o(1), worst at o(n) -> because of chain to avoid hash collision.
+     * PT
      *
      * @param firstName
      * @param lastName
@@ -62,7 +64,7 @@ public class HashTable {
         // PT if my person have not exist, add it to hash key
         if (myNodes[theKey] == null) {
             myNodes[theKey] = new HashNode(theKey, thePerson);
-            System.out.println("Insert: Bucket " + theKey + " : " +  myNodes[theKey].person.toString());
+            System.out.println("Insert: " + myNodes[theKey].person.toString());
         } else {
 
             // has already exist, so we chain it.
@@ -70,7 +72,7 @@ public class HashTable {
             headNode.next = myNodes[theKey];
             myNodes[theKey]  = headNode;
 
-            System.out.println("Insert Chain: Bucket " +theKey + " : " + myNodes[theKey].person.toString());
+            System.out.println("Insert Chain: " + myNodes[theKey].person.toString());
 
         }
 
@@ -90,7 +92,7 @@ public class HashTable {
         int theKey = getHashIndex(firstName, lastName);
 
         if (myNodes[theKey] == null) {
-            System.out.println("Delete: Bucket : " + theKey + " : " + firstName.toUpperCase() + " " + lastName.toUpperCase() + " not found.");
+            System.out.println("Delete: " + firstName.toUpperCase() + " " + lastName.toUpperCase() + " not found.");
         }
 
         if (myNodes[theKey] != null) {
@@ -100,7 +102,7 @@ public class HashTable {
             String fullName = firstName.toUpperCase() + " " + lastName.toUpperCase();
             myNodes[theKey] = myNodes[theKey].removeAt(fullName);
 
-            System.out.println("Delete: Bucket : " + theKey + " : " + firstName.toUpperCase() + " " + lastName.toUpperCase() + ".");
+            System.out.println("Delete: " + firstName.toUpperCase() + " " + lastName.toUpperCase() + ".");
             mySize--;
         }
 
@@ -121,7 +123,7 @@ public class HashTable {
             System.out.println("Lookup: " + firstName.toUpperCase() + " " + lastName.toUpperCase() + " not found.");
         } else {
             Person person = myNodes[theKey].person;
-             System.out.println("Lookup: Bucket " +  theKey +" : "+ person.toString());
+             System.out.println("Lookup: " +  person.toString());
         }
 
         return myNodes[theKey];
@@ -152,6 +154,22 @@ public class HashTable {
 
 
     /**
+     * How many buckets does this hash table use?
+     * PT
+     * @return
+     */
+    private int getBucketCount() {
+
+        int count = 0;
+        for (int i=0; i < MY_MAX_SIZE; i++) {
+            if(myNodes[i] != null) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
      * Though, not in the requirement, I use this could to print all node in the data structures.
      * It helps visually see # of elements currently in the table. This should not be invoked if table get too big.
      * PT
@@ -161,7 +179,8 @@ public class HashTable {
     public void outputStack() {
 
         System.out.println("\n --- Debug Hash Information --- \n");
-        System.out.println("Size: " +  this.getSize() + " \n");
+        System.out.println("Bucket Count: " +  this.getBucketCount());
+        System.out.println("Size Count: " +  this.getSize() + " \n");
 
         for(HashNode node: myNodes) {
             if(node != null) {

@@ -1,8 +1,14 @@
 package edu.wgu.c189;
 
+
 /**
- * Created by thachp on 7/10/16.
+ * A data structure in which a record is linked to two successor records,
+ * usually referred to as the left branch when greater and the right when less than the previous record.
+ *
+ * PT
+ * @author pthach2@wgu.edu
  */
+
 public class BinaryTree {
 
 
@@ -13,18 +19,33 @@ public class BinaryTree {
         this.root = null;
     }
 
+    /**
+     * Is the tree empty?
+     * PT
+     * @return
+     */
     public boolean isEmpty() {
         return this.root == null;
     }
 
-
+    /**
+     * How many nodes are there in this tree?
+     *
+     * PT
+     * @return
+     */
     public int getSize() {
         return mySize;
     }
 
     /**
-     * PT: AS
+     * Create new person object and insert into binary tree.
+     * The TreeNode has unique hashcode assigned. Node having less hashcode (int) than parent
+     * will be assigned to the left, vice versa greater will be assigned to the right branch.
      *
+     * Time complexity: O(log(n), worst: O(n)
+     *
+     * PT
      * @param firstName
      * @param lastName
      * @param emailAddress
@@ -34,9 +55,8 @@ public class BinaryTree {
                        String emailAddress, String phoneNumber) {
 
         Person thePerson = new Person(firstName, lastName, emailAddress, phoneNumber);
-        int key = getIndex(firstName, lastName);
+        int key = getHash(firstName, lastName);
 
-        // recursive
         if (this.isEmpty()) {
             this.root = new TreeNode(key, thePerson);
             System.out.println("Insert Root: " + key + " : " + this.root.person.toString());
@@ -48,17 +68,19 @@ public class BinaryTree {
     }
 
     /**
-     * Delete
+     * Similar to insert, this recursive method delete node from subtree by hash.
+     * Time complexity: O(log(n), worst: O(n)
      *
+     * PT
      * @param firstName
      * @param lastName
      */
     public void delete(String firstName, String lastName) {
-        int key = getIndex(firstName, lastName);
+        int key = getHash(firstName, lastName);
         // delete key, traverse from root
         boolean isDeleted = this.root.delete(key, null);
 
-        if (isDeleted == true) {
+        if (isDeleted) {
             mySize--;
             System.out.println("Delete: " + firstName.toUpperCase() + " " + lastName.toUpperCase() + " deleted.");
         }
@@ -66,16 +88,22 @@ public class BinaryTree {
     }
 
     /**
-     * pre-order – process the current node and then traverse the left and right sub-trees.
+     * Recursively find a children of this node by key.
      *
+     * Traverse Pre-Order
+     * Display the data part of the root (or current node).
+     * Traverse the left subtree by recursively calling the pre-order function.
+     * Traverse the right subtree by recursively calling the pre-order function.
+     *
+     * Time Complexity: O(log(n)), worst: O(n)
+     * PT
      * @param firstName
      * @param lastName
      */
 
     public void lookup(String firstName, String lastName) {
 
-        int key = getIndex(firstName, lastName);
-
+        int key = getHash(firstName, lastName);
         TreeNode node =  this.root.find(key);
 
         if(node != null) {
@@ -87,23 +115,30 @@ public class BinaryTree {
     }
 
     /**
-     * Generate positve key hash
+     * Generate hashCode base on firstname and lastname.
+     * This hashcode will be used to identify node when doing lookup.
      *
+     * @TODO Hashcode() do not gauranteed unique ID, this can be enhanced later.
+     *
+     * PT
      * @param firstName
      * @param lastName
      * @return
      */
-    public int getIndex(String firstName, String lastName) {
-        return firstName.concat(lastName).hashCode() & 0x7fffffff;
+    public int getHash(String firstName, String lastName) {
+        return firstName.concat(lastName).hashCode();
     }
 
+
     /**
-     * Output stack
+     * Not in requirement, but helpful when debugging
+     * Time Complexity: 0(n), because it has to traverse all nodes.
+     * PT
      */
     public void outputStack() {
 
         System.out.println("\n --- Debug Tree Information --- \n");
-        System.out.println("Size: " + this.getSize() + " \n");
+        System.out.println("Size Count: " + this.getSize() + " \n");
 
         // traverse output
         this.root.dump();

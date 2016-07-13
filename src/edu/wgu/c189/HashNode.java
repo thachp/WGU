@@ -1,12 +1,13 @@
 package edu.wgu.c189;
 
 /**
- * This clas will build HashNode object.
+ * This class will allow creation of HashNode object.
  * It is hold reference to Person object.
  * PT
  *
  * @author pthach2@wgu.edu
  */
+
 public class HashNode {
 
 
