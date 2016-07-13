@@ -15,10 +15,12 @@ public class HashNode {
     Person person = null;
 
     // signly linkedlist
+    // PT
     HashNode next;
 
     /**
      * Constructor
+     * PT
      *
      * @param hash
      * @param person
@@ -64,7 +66,6 @@ public class HashNode {
 
         current.next = current.next.next;
 
-        // return head
         return this;
     }
 

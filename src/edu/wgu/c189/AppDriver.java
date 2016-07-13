@@ -6,6 +6,7 @@ import java.util.*;
  *
  *  An application that tests the insert, remove, and lookups functionalities BinaryTree and Hashtable.
  *  Maybe use JUNIT instead?
+ *
  *  PT
  * @author pthach2@wgu.edu
  */
