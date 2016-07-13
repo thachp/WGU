@@ -57,7 +57,7 @@ public class AppDriver {
 
         System.out.println("\n Test HashTable People \n");
 
-        // use max size of prime number 41, because it will generate nice sparse array
+        // Set max size array of prime number 41, because it will generate nice sparse array
         // and meet the requirement of 13 buckets.
         //
         // PT
